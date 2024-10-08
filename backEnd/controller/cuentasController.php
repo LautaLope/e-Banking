@@ -23,6 +23,15 @@ function get()
     echo json_encode($query);
 }
 
+function add(){
+    $tipoCuenta = $_POST['tipoCuenta'];
+    $saldo = $_POST['saldo'];
+    $ci = $_POST['ci'];
+
+    $query = (new cuentaDAO)->get($ci);
+    echo json_encode($query);
+}
+
 function updateAumento()
 {
     $nroCuenta = $_POST['nroCuenta'];

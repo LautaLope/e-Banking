@@ -12,6 +12,15 @@ class cuentaDAO{
         return $query;
     }
 
+    function add($tipoCuenta, $saldo, $ci){
+        $sql = "INSERT INTO `cuenta`(`nroCuenta`, `tipoCuenta`, `saldo`, `ciCliente`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]')";
+        $connection = connection();
+        $result = $connection->query($sql);
+        $cuentas = $result->fetch_all(MYSQLI_ASSOC);
+        $query = new query(true, "Cuentas obtenidas", $cuentas);
+        return $query;
+    }
+
     function updateAumento($nroCuenta, $monto){
         $sql = "UPDATE `cuenta` SET `saldo`= saldo + '$monto' WHERE `nroCuenta`='$nroCuenta'";
         $connection = connection();
